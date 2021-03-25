@@ -8,7 +8,7 @@
 You can install the bindings via [Composer](http://getcomposer.org/). Run the following command:
 
 ```bash
-composer require studio98/quickbooks-v3-php-sdk
+composer require webninjabilal/quickbooks-v3-php-sdk
 
 # QuickBooks API PHP SDK
 
