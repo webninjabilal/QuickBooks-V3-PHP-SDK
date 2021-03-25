@@ -1258,7 +1258,7 @@ class DataService
      * @return IntuitRecurringTransactionResponse Returns the RecurringTransaction created for the entity.
      * @throws IdsException
      */
-    public function recurringTransaction($query)
+    public function recurringTransaction($query, $startPosition, $maxResults)
     {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Query.");
 
@@ -1284,13 +1284,14 @@ class DataService
             try {
                 $xmlObj = simplexml_load_string($responseBody);
                 $responseArray = $xmlObj->QueryResponse->RecurringTransaction;
+
                 if(sizeof($responseArray) <= 0){
                     throw new ServiceException("No recurring transactions found.");
                 }
 
                 for($i = 0; $i < sizeof($responseArray); $i++){
                     $currentResponse = $responseArray[$i];
-                    $currentEntityName = $entityList[$i];
+                    $currentEntityName = XmlObjectSerializer::cleanPhpClassNameToIntuitEntityName(get_class($responseArray[0]));
                     $entities = $this->responseSerializer->Deserialize($currentResponse->asXML(), false);
                     $entityName = $currentEntityName;
                     //If we find the actual name, update it.
