@@ -1,6 +1,6 @@
 # Payments SDK is now available at: https://github.com/intuit/PHP-Payments-SDK #
 
-[![SDK Banner](views/SDK.png)][ss1]
+[SDK Banner](views/SDK.png)]
 
 
 ## Composer
