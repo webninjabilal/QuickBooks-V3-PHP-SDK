@@ -2,6 +2,14 @@
 
 [![SDK Banner](views/SDK.png)][ss1]
 
+
+## Composer
+
+You can install the bindings via [Composer](http://getcomposer.org/). Run the following command:
+
+```bash
+composer require studio98/quickbooks-v3-php-sdk
+
 # QuickBooks API PHP SDK
 
 PHP client for connecting to the QuickBooks Online V3 REST API.
